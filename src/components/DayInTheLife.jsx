@@ -9,8 +9,7 @@ const moments = [
     quote: 'Now I can practice scenarios before visiting homes',
     quotee: 'ASHA Worker, Karnataka',
     agent: 'guru',
-    agentColor: 'glow-guru',
-    gradientFrom: 'from-glow-guru/20',
+    color: 'accent-guru',
   },
   {
     time: '12:00',
@@ -19,8 +18,7 @@ const moments = [
     quote: 'Sakhi reminds me of each case while I travel between villages',
     quotee: 'ANM, Madhya Pradesh',
     agent: 'sakhi',
-    agentColor: 'glow-sakhi',
-    gradientFrom: 'from-glow-sakhi/20',
+    color: 'accent-sakhi',
   },
   {
     time: '14:00',
@@ -29,8 +27,7 @@ const moments = [
     quote: 'I can focus on the mother, not on filling forms',
     quotee: 'ASHA Worker, Rajasthan',
     agent: 'all',
-    agentColor: 'glow-sakhi',
-    gradientFrom: 'from-glow-sakhi/10',
+    color: 'accent-primary',
     technicalNote: 'Local models, instant erasure, privacy-first design',
   },
   {
@@ -40,8 +37,7 @@ const moments = [
     quote: 'What used to take 2 hours now takes 10 minutes',
     quotee: 'ANM, Bihar',
     agent: 'clerk',
-    agentColor: 'glow-clerk',
-    gradientFrom: 'from-glow-clerk/20',
+    color: 'accent-clerk',
     additionalNote: 'Clerk auto-fills 6 forms. Analyst flags tomorrow\'s priority.',
   },
 ];
@@ -49,22 +45,9 @@ const moments = [
 export default function DayInTheLife() {
   const [activeIndex, setActiveIndex] = useState(0);
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: false, margin: "-40%" });
 
   return (
-    <section id="day-in-life" className="section-padding bg-ink relative overflow-hidden" ref={sectionRef}>
-      {/* Background gradient based on active moment */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={activeIndex}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.3 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8 }}
-          className={`absolute inset-0 bg-gradient-to-br ${moments[activeIndex].gradientFrom} to-ink`}
-        />
-      </AnimatePresence>
-
+    <section id="day-in-life" className="section-padding bg-paper relative overflow-hidden" ref={sectionRef}>
       <div className="max-content relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -73,10 +56,10 @@ export default function DayInTheLife() {
           transition={{ duration: 0.6 }}
           className="mb-12 lg:mb-20"
         >
-          <h2 className="font-display text-3xl lg:text-section text-silver mb-4">
+          <h2 className="font-display text-3xl lg:text-section text-charcoal mb-4">
             08:00 to 20:00: The Agent-Augmented Day
           </h2>
-          <p className="font-body text-lg lg:text-body-lg text-silver/70 max-w-2xl">
+          <p className="font-body text-lg lg:text-body-lg text-slate max-w-2xl">
             Follow a frontline health worker through a typical day, empowered by AI companions.
           </p>
         </motion.div>
@@ -84,12 +67,12 @@ export default function DayInTheLife() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           {/* Phone Mockup */}
           <div className="lg:sticky lg:top-32 order-2 lg:order-1">
-            <div className="relative w-64 sm:w-72 lg:w-80 h-[500px] sm:h-[550px] lg:h-[600px] mx-auto bg-slate/80 backdrop-blur rounded-[3rem] border-4 border-silver/20 p-3 shadow-2xl shadow-black/50">
+            <div className="relative w-64 sm:w-72 lg:w-80 h-[500px] sm:h-[550px] lg:h-[600px] mx-auto bg-charcoal rounded-[3rem] border-4 border-slate p-3 shadow-2xl">
               {/* Phone notch */}
-              <div className="absolute top-4 left-1/2 -translate-x-1/2 w-24 h-6 bg-ink rounded-full" />
+              <div className="absolute top-4 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-full" />
 
               {/* Phone content */}
-              <div className="h-full bg-ink rounded-[2.25rem] overflow-hidden pt-8 px-4 pb-4">
+              <div className="h-full bg-cream rounded-[2.25rem] overflow-hidden pt-8 px-4 pb-4">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeIndex}
@@ -101,35 +84,35 @@ export default function DayInTheLife() {
                   >
                     {/* Time display */}
                     <div className="text-center mb-4">
-                      <p className={`font-mono text-3xl lg:text-4xl font-bold text-${moments[activeIndex].agentColor}`}>
+                      <p className={`font-mono text-3xl lg:text-4xl font-bold text-${moments[activeIndex].color}`}>
                         {moments[activeIndex].time}
                       </p>
-                      <p className="font-mono text-xs text-silver/50 uppercase tracking-wider mt-1">
+                      <p className="font-mono text-xs text-muted uppercase tracking-wider mt-1">
                         {moments[activeIndex].location}
                       </p>
                     </div>
 
                     {/* Agent icon */}
-                    <div className={`w-16 h-16 mx-auto mb-4 rounded-2xl bg-${moments[activeIndex].agentColor}/20 flex items-center justify-center`}>
+                    <div className={`w-16 h-16 mx-auto mb-4 rounded-2xl bg-${moments[activeIndex].color}/10 flex items-center justify-center`}>
                       {moments[activeIndex].agent === 'all' ? (
                         <div className="grid grid-cols-2 gap-1">
-                          <div className="w-3 h-3 rounded-full bg-glow-sakhi" />
-                          <div className="w-3 h-3 rounded-full bg-glow-guru" />
-                          <div className="w-3 h-3 rounded-full bg-glow-clerk" />
-                          <div className="w-3 h-3 rounded-full bg-glow-analyst" />
+                          <div className="w-3 h-3 rounded-full bg-accent-sakhi" />
+                          <div className="w-3 h-3 rounded-full bg-accent-guru" />
+                          <div className="w-3 h-3 rounded-full bg-accent-clerk" />
+                          <div className="w-3 h-3 rounded-full bg-accent-analyst" />
                         </div>
                       ) : (
-                        <div className={`w-6 h-6 rounded-full bg-${moments[activeIndex].agentColor}`} />
+                        <div className={`w-6 h-6 rounded-full bg-${moments[activeIndex].color}`} />
                       )}
                     </div>
 
                     {/* Quote */}
                     <div className="flex-1 flex flex-col justify-center">
-                      <blockquote className={`text-center px-2 border-l-2 border-${moments[activeIndex].agentColor}`}>
-                        <p className="font-body text-sm lg:text-base text-silver/90 italic">
+                      <blockquote className={`text-center px-2 border-l-2 border-${moments[activeIndex].color}`}>
+                        <p className="font-body text-sm lg:text-base text-charcoal italic">
                           "{moments[activeIndex].quote}"
                         </p>
-                        <footer className="text-silver/50 mt-2 text-xs">
+                        <footer className="text-muted mt-2 text-xs">
                           — {moments[activeIndex].quotee}
                         </footer>
                       </blockquote>
@@ -137,8 +120,8 @@ export default function DayInTheLife() {
 
                     {/* Technical note if exists */}
                     {moments[activeIndex].technicalNote && (
-                      <div className="mt-4 p-3 rounded-xl bg-silver/5 border border-silver/10">
-                        <p className="font-mono text-xs text-silver/60 text-center">
+                      <div className="mt-4 p-3 rounded-xl bg-paper border border-border">
+                        <p className="font-mono text-xs text-muted text-center">
                           {moments[activeIndex].technicalNote}
                         </p>
                       </div>
@@ -150,7 +133,7 @@ export default function DayInTheLife() {
           </div>
 
           {/* Content - Scrolls */}
-          <div className="space-y-8 lg:space-y-16 order-1 lg:order-2">
+          <div className="space-y-8 lg:space-y-12 order-1 lg:order-2">
             {moments.map((moment, idx) => (
               <motion.div
                 key={idx}
@@ -159,34 +142,34 @@ export default function DayInTheLife() {
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6 }}
                 onViewportEnter={() => setActiveIndex(idx)}
-                className={`space-y-4 p-6 rounded-2xl transition-all duration-300 cursor-pointer ${
+                className={`space-y-4 p-6 rounded-2xl transition-all duration-300 cursor-pointer border ${
                   activeIndex === idx
-                    ? 'bg-slate/50 border border-silver/10'
-                    : 'bg-transparent hover:bg-slate/30'
+                    ? 'bg-paper border-border shadow-md'
+                    : 'bg-transparent border-transparent hover:bg-cream'
                 }`}
                 onClick={() => setActiveIndex(idx)}
               >
                 <div className="flex items-center gap-4">
                   <span className={`font-mono text-2xl lg:text-3xl font-bold ${
-                    activeIndex === idx ? `text-${moment.agentColor}` : 'text-silver/40'
+                    activeIndex === idx ? `text-${moment.color}` : 'text-muted'
                   }`}>
                     {moment.time}
                   </span>
                   <span className={`font-body text-body uppercase tracking-wider ${
-                    activeIndex === idx ? `text-${moment.agentColor}` : 'text-silver/50'
+                    activeIndex === idx ? `text-${moment.color}` : 'text-muted'
                   }`}>
                     {moment.location}
                   </span>
                 </div>
 
                 <p className={`font-body text-body-lg ${
-                  activeIndex === idx ? 'text-silver/90' : 'text-silver/60'
+                  activeIndex === idx ? 'text-charcoal' : 'text-slate'
                 }`}>
                   {moment.narrative}
                 </p>
 
                 {moment.additionalNote && activeIndex === idx && (
-                  <p className={`font-mono text-technical text-${moment.agentColor}`}>
+                  <p className={`font-mono text-technical text-${moment.color}`}>
                     {moment.additionalNote}
                   </p>
                 )}
@@ -197,9 +180,9 @@ export default function DayInTheLife() {
 
         {/* Timeline Scrubber */}
         <div className="mt-12 lg:mt-20">
-          <div className="h-2 bg-silver/10 rounded-full overflow-hidden">
+          <div className="h-2 bg-border rounded-full overflow-hidden">
             <motion.div
-              className="h-full bg-gradient-to-r from-glow-guru via-glow-sakhi to-glow-clerk rounded-full"
+              className="h-full bg-gradient-to-r from-accent-guru via-accent-sakhi to-accent-clerk rounded-full"
               initial={{ width: '25%' }}
               animate={{ width: `${(activeIndex + 1) * 25}%` }}
               transition={{ duration: 0.5 }}
@@ -211,7 +194,7 @@ export default function DayInTheLife() {
                 key={idx}
                 onClick={() => setActiveIndex(idx)}
                 className={`font-mono text-xs transition-colors ${
-                  activeIndex >= idx ? `text-${moment.agentColor}` : 'text-silver/30'
+                  activeIndex >= idx ? `text-${moment.color}` : 'text-muted'
                 }`}
               >
                 {moment.time}

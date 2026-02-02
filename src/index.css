@@ -10,25 +10,25 @@
   }
 
   body {
-    @apply bg-ink text-silver font-body;
+    @apply bg-cream text-charcoal font-body;
     margin: 0;
   }
 
-  /* Custom scrollbar for dark theme */
+  /* Custom scrollbar for light theme */
   ::-webkit-scrollbar {
     width: 8px;
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-ink;
+    @apply bg-cream;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-slate rounded-full;
+    @apply bg-border rounded-full;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-silver/30;
+    @apply bg-muted/50;
   }
 }
 
@@ -46,13 +46,21 @@
   }
 
   .glass-morphism {
-    @apply bg-slate/50 backdrop-blur-xl border border-silver/10;
+    @apply bg-paper/80 backdrop-blur-xl border border-border shadow-sm;
+  }
+
+  .card {
+    @apply bg-paper rounded-2xl border border-border shadow-sm;
+  }
+
+  .card-hover {
+    @apply hover:shadow-md hover:border-accent-primary/30 transition-all duration-300;
   }
 }
 
 @layer utilities {
-  .text-gradient-sakhi {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-glow-sakhi to-glow-guru;
+  .text-gradient-primary {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-primary to-accent-sakhi;
   }
 
   .animate-float {
@@ -66,5 +74,11 @@
     50% {
       transform: translateY(-10px);
     }
+  }
+
+  .bg-grid {
+    background-image: linear-gradient(to right, rgba(226, 232, 240, 0.5) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(226, 232, 240, 0.5) 1px, transparent 1px);
+    background-size: 40px 40px;
   }
 }

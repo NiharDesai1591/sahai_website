@@ -87,11 +87,18 @@ const agents = [
   },
 ];
 
+const colorMap = {
+  sakhi: { bg: 'bg-accent-sakhi/10', text: 'text-accent-sakhi', border: 'border-accent-sakhi/20' },
+  guru: { bg: 'bg-accent-guru/10', text: 'text-accent-guru', border: 'border-accent-guru/20' },
+  clerk: { bg: 'bg-accent-clerk/10', text: 'text-accent-clerk', border: 'border-accent-clerk/20' },
+  analyst: { bg: 'bg-accent-analyst/10', text: 'text-accent-analyst', border: 'border-accent-analyst/20' },
+};
+
 export default function AgentFramework() {
   const [selectedAgent, setSelectedAgent] = useState(null);
 
   return (
-    <section id="agents" className="section-padding bg-slate/30">
+    <section id="agents" className="section-padding bg-cream">
       <div className="max-content">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -100,10 +107,10 @@ export default function AgentFramework() {
           transition={{ duration: 0.6 }}
           className="mb-12 lg:mb-16"
         >
-          <h2 className="font-display text-3xl lg:text-section text-silver mb-4">
+          <h2 className="font-display text-3xl lg:text-section text-charcoal mb-4">
             The 4-Agent Framework
           </h2>
-          <p className="font-body text-lg lg:text-body-lg text-silver/70 max-w-2xl">
+          <p className="font-body text-lg lg:text-body-lg text-slate max-w-2xl">
             Four specialized AI agents working in concert to support every aspect of frontline health work.
           </p>
         </motion.div>
@@ -130,7 +137,7 @@ export default function AgentFramework() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-12 lg:mt-16 text-center"
         >
-          <p className="font-mono text-technical text-silver/50">
+          <p className="font-mono text-technical text-muted">
             All four agents share context and work as a unified system
           </p>
         </motion.div>
@@ -143,31 +150,31 @@ export default function AgentFramework() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-ink/90 backdrop-blur-sm"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-charcoal/50 backdrop-blur-sm"
             onClick={() => setSelectedAgent(null)}
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-slate rounded-3xl p-6 lg:p-8 max-w-lg w-full max-h-[80vh] overflow-y-auto border border-silver/10"
+              className="bg-paper rounded-2xl p-6 lg:p-8 max-w-lg w-full max-h-[80vh] overflow-y-auto border border-border shadow-xl"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-4">
-                  <div className={`w-12 h-12 rounded-xl bg-${glowColorMap[selectedAgent.colorKey]}/20 flex items-center justify-center text-${glowColorMap[selectedAgent.colorKey]}`}>
+                  <div className={`w-12 h-12 rounded-xl ${colorMap[selectedAgent.colorKey].bg} flex items-center justify-center ${colorMap[selectedAgent.colorKey].text}`}>
                     {selectedAgent.icon}
                   </div>
                   <div>
-                    <h3 className="font-display text-xl text-silver">{selectedAgent.name}</h3>
-                    <p className={`font-mono text-sm text-${glowColorMap[selectedAgent.colorKey]}`}>
+                    <h3 className="font-display text-xl text-charcoal">{selectedAgent.name}</h3>
+                    <p className={`font-mono text-sm ${colorMap[selectedAgent.colorKey].text}`}>
                       {selectedAgent.tagline}
                     </p>
                   </div>
                 </div>
                 <button
                   onClick={() => setSelectedAgent(null)}
-                  className="text-silver/50 hover:text-silver transition-colors"
+                  className="text-muted hover:text-charcoal transition-colors"
                 >
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -176,27 +183,27 @@ export default function AgentFramework() {
               </div>
 
               <div className="space-y-4">
-                <p className="font-mono text-technical text-silver/50 uppercase">Sample Interaction</p>
+                <p className="font-mono text-technical text-muted uppercase">Sample Interaction</p>
                 <div className="space-y-3">
                   {selectedAgent.modalContent.conversation.map((msg, idx) => (
                     <div
                       key={idx}
-                      className={`p-3 rounded-2xl ${
+                      className={`p-3 rounded-xl ${
                         msg.role === selectedAgent.id
-                          ? `bg-${glowColorMap[selectedAgent.colorKey]}/10 border border-${glowColorMap[selectedAgent.colorKey]}/20`
+                          ? `${colorMap[selectedAgent.colorKey].bg} border ${colorMap[selectedAgent.colorKey].border}`
                           : msg.role === 'system'
-                          ? 'bg-silver/5 text-silver/60 text-center text-sm'
-                          : 'bg-silver/10'
+                          ? 'bg-cream text-muted text-center text-sm'
+                          : 'bg-cream'
                       }`}
                     >
                       {msg.role !== 'system' && (
                         <p className={`text-xs font-mono mb-1 ${
-                          msg.role === selectedAgent.id ? `text-${glowColorMap[selectedAgent.colorKey]}` : 'text-silver/50'
+                          msg.role === selectedAgent.id ? colorMap[selectedAgent.colorKey].text : 'text-muted'
                         }`}>
                           {msg.role === selectedAgent.id ? selectedAgent.name : 'Health Worker'}
                         </p>
                       )}
-                      <p className="text-sm text-silver/90 whitespace-pre-line">{msg.text}</p>
+                      <p className="text-sm text-charcoal whitespace-pre-line">{msg.text}</p>
                     </div>
                   ))}
                 </div>
@@ -208,10 +215,3 @@ export default function AgentFramework() {
     </section>
   );
 }
-
-const glowColorMap = {
-  sakhi: 'glow-sakhi',
-  guru: 'glow-guru',
-  clerk: 'glow-clerk',
-  analyst: 'glow-analyst',
-};

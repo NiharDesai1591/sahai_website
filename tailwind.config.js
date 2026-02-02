@@ -7,14 +7,20 @@ export default {
   theme: {
     extend: {
       colors: {
-        ink: '#0F0F0F',
-        slate: '#1A1A1B',
-        silver: '#F5F5F5',
-        glow: {
-          sakhi: '#06D6A0',
-          guru: '#FFB703',
-          clerk: '#4361EE',
-          analyst: '#EF476F',
+        // Light theme colors
+        cream: '#FAFAFA',
+        paper: '#FFFFFF',
+        charcoal: '#1a202c',
+        slate: '#4a5568',
+        muted: '#718096',
+        border: '#e2e8f0',
+        // Accent colors (keeping the agent colors)
+        accent: {
+          primary: '#14b8a6',    // Teal - primary accent
+          sakhi: '#06D6A0',      // Teal - The Voice
+          guru: '#FFB703',       // Amber - The Mentor
+          clerk: '#4361EE',      // Indigo - The Engine
+          analyst: '#EF476F',    // Crimson - The Brain
         }
       },
       fontFamily: {
@@ -32,6 +38,10 @@ export default {
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'grid-pattern': 'linear-gradient(to right, #e2e8f0 1px, transparent 1px), linear-gradient(to bottom, #e2e8f0 1px, transparent 1px)',
+      },
+      backgroundSize: {
+        'grid': '40px 40px',
       },
       animation: {
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
