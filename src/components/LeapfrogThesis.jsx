@@ -42,14 +42,14 @@ const comparisons = [
 
 export default function LeapfrogThesis() {
   return (
-    <section id="thesis" className="section-padding bg-ink">
+    <section id="thesis" className="section-padding bg-paper">
       <div className="max-content">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-display text-3xl lg:text-section text-silver mb-8"
+          className="font-display text-3xl lg:text-section text-charcoal mb-8"
         >
           The Leapfrog Moment.
         </motion.h2>
@@ -59,7 +59,7 @@ export default function LeapfrogThesis() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="font-body text-lg lg:text-body-lg text-silver/80 max-w-3xl mb-16 lg:mb-20"
+          className="font-body text-lg lg:text-body-lg text-slate max-w-3xl mb-16 lg:mb-20"
         >
           For a decade, digitization meant more forms and more dashboards.
           For the frontline worker, it meant more work. We believe the next era
@@ -81,27 +81,27 @@ export default function LeapfrogThesis() {
             >
               {/* Connecting line */}
               {idx < phases.length - 1 && (
-                <div className="hidden md:block absolute top-8 left-[60%] w-[80%] h-0.5 bg-gradient-to-r from-silver/20 to-silver/5" />
+                <div className="hidden md:block absolute top-8 left-[60%] w-[80%] h-0.5 bg-gradient-to-r from-border to-transparent" />
               )}
 
               <div className={`inline-flex items-center justify-center w-20 h-20 mb-4 rounded-2xl ${
-                idx === 2 ? 'bg-glow-sakhi/20 text-glow-sakhi' : 'bg-silver/10 text-silver/60'
+                idx === 2 ? 'bg-accent-primary/10 text-accent-primary' : 'bg-cream text-muted border border-border'
               }`}>
                 {phase.icon}
               </div>
-              <h4 className="font-mono text-technical text-silver/50 mb-2 uppercase tracking-wider">
+              <h4 className="font-mono text-technical text-muted mb-2 uppercase tracking-wider">
                 {phase.era}
               </h4>
-              <h3 className="font-body text-xl lg:text-subsection text-silver mb-2">
+              <h3 className="font-body text-xl lg:text-subsection text-charcoal mb-2">
                 {phase.label}
               </h3>
-              <p className="font-body text-body text-silver/60">{phase.state}</p>
+              <p className="font-body text-body text-slate">{phase.state}</p>
             </motion.div>
           ))}
         </div>
 
         {/* Comparison Grid */}
-        <div className="max-w-4xl mx-auto space-y-6">
+        <div className="max-w-4xl mx-auto space-y-4">
           {comparisons.map((comparison, idx) => (
             <motion.div
               key={idx}
@@ -109,20 +109,20 @@ export default function LeapfrogThesis() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] gap-4 sm:gap-8 items-center p-4 rounded-xl bg-slate/30"
+              className="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] gap-4 sm:gap-8 items-center p-4 rounded-xl bg-cream border border-border"
             >
               <div className="text-center sm:text-right">
-                <span className="font-body text-body text-silver/50 line-through">
+                <span className="font-body text-body text-muted line-through">
                   {comparison.from}
                 </span>
               </div>
               <div className="flex justify-center">
-                <svg className="w-8 h-8 text-glow-sakhi" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-8 h-8 text-accent-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </div>
               <div className="text-center sm:text-left">
-                <span className="font-body text-lg lg:text-body-lg text-silver">
+                <span className="font-body text-lg lg:text-body-lg text-charcoal font-medium">
                   {comparison.to}
                 </span>
               </div>

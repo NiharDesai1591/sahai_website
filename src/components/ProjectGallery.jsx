@@ -13,7 +13,7 @@ const projects = [
     tech: 'LLM + Risk Scoring | RCH Integration | Voice Interface',
     states: ['Karnataka', 'Maharashtra', 'Madhya Pradesh'],
     status: 'Live',
-    statusColor: 'glow-sakhi',
+    statusColor: 'accent-sakhi',
   },
   {
     name: 'NHM Protocol Mastery',
@@ -27,7 +27,7 @@ const projects = [
     tech: 'RAG System | Adaptive Learning | Multi-lingual Support',
     states: ['Bihar', 'Uttar Pradesh', 'Rajasthan', 'Chhattisgarh'],
     status: 'Live',
-    statusColor: 'glow-sakhi',
+    statusColor: 'accent-sakhi',
   },
   {
     name: 'Mental Health AI Trainer',
@@ -41,7 +41,7 @@ const projects = [
     tech: 'Scenario Simulation | Empathy Training | Referral Pathways',
     states: ['Karnataka', 'Telangana'],
     status: 'Pilot',
-    statusColor: 'glow-guru',
+    statusColor: 'accent-guru',
   },
   {
     name: 'Kilkaari Integration',
@@ -55,13 +55,13 @@ const projects = [
     tech: 'Personalization Engine | IVR Integration | Analytics Dashboard',
     states: ['National Program'],
     status: 'Under Development',
-    statusColor: 'glow-clerk',
+    statusColor: 'accent-clerk',
   },
 ];
 
 export default function ProjectGallery() {
   return (
-    <section id="results" className="section-padding bg-slate/30">
+    <section id="results" className="section-padding bg-cream">
       <div className="max-content">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -70,10 +70,10 @@ export default function ProjectGallery() {
           transition={{ duration: 0.6 }}
           className="mb-12 lg:mb-16"
         >
-          <h2 className="font-display text-3xl lg:text-section text-silver mb-4">
+          <h2 className="font-display text-3xl lg:text-section text-charcoal mb-4">
             Projects & Impact
           </h2>
-          <p className="font-body text-lg lg:text-body-lg text-silver/70 max-w-2xl">
+          <p className="font-body text-lg lg:text-body-lg text-slate max-w-2xl">
             Real deployments creating measurable impact across India's public health system.
           </p>
         </motion.div>
@@ -86,42 +86,42 @@ export default function ProjectGallery() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="p-6 lg:p-8 bg-ink rounded-3xl border border-silver/10 hover:border-silver/20 transition-colors"
+              className="p-6 lg:p-8 bg-paper rounded-2xl border border-border hover:border-accent-primary/30 hover:shadow-md transition-all"
             >
               {/* Header */}
               <div className="flex items-start justify-between mb-4">
                 <div>
-                  <h3 className="font-display text-xl lg:text-subsection text-silver mb-1">
+                  <h3 className="font-display text-xl lg:text-subsection text-charcoal mb-1">
                     {project.name}
                   </h3>
-                  <p className="font-mono text-technical text-silver/50 uppercase">
+                  <p className="font-mono text-technical text-muted uppercase">
                     {project.context}
                   </p>
                 </div>
-                <span className={`px-3 py-1 rounded-full text-xs font-mono bg-${project.statusColor}/20 text-${project.statusColor}`}>
+                <span className={`px-3 py-1 rounded-full text-xs font-mono bg-${project.statusColor}/10 text-${project.statusColor}`}>
                   {project.status}
                 </span>
               </div>
 
               {/* Description */}
-              <p className="font-body text-body text-silver/70 mb-6">
+              <p className="font-body text-body text-slate mb-6">
                 {project.description}
               </p>
 
               {/* Metrics */}
               <div className="grid grid-cols-3 gap-4 mb-6">
                 {Object.entries(project.metrics).map(([key, value]) => (
-                  <div key={key} className="text-center p-3 rounded-xl bg-slate/50">
-                    <p className="font-display text-xl lg:text-2xl text-silver mb-1">{value}</p>
-                    <p className="font-mono text-xs text-silver/50 uppercase">{key}</p>
+                  <div key={key} className="text-center p-3 rounded-xl bg-cream border border-border">
+                    <p className="font-display text-xl lg:text-2xl text-charcoal mb-1">{value}</p>
+                    <p className="font-mono text-xs text-muted uppercase">{key}</p>
                   </div>
                 ))}
               </div>
 
               {/* Tech */}
               <div className="mb-4">
-                <p className="font-mono text-xs text-silver/40 mb-1">TECH STACK</p>
-                <p className="font-mono text-technical text-silver/70">{project.tech}</p>
+                <p className="font-mono text-xs text-muted mb-1">TECH STACK</p>
+                <p className="font-mono text-technical text-slate">{project.tech}</p>
               </div>
 
               {/* States */}
@@ -129,7 +129,7 @@ export default function ProjectGallery() {
                 {project.states.map((state) => (
                   <span
                     key={state}
-                    className="px-3 py-1 rounded-full text-xs font-body bg-silver/5 text-silver/60 border border-silver/10"
+                    className="px-3 py-1 rounded-full text-xs font-body bg-cream text-slate border border-border"
                   >
                     {state}
                   </span>

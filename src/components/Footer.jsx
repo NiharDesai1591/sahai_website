@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 export default function Footer() {
   return (
-    <footer id="contact" className="section-padding bg-ink border-t border-silver/10">
+    <footer id="contact" className="section-padding bg-charcoal">
       <div className="max-content">
         {/* CTA Section */}
         <motion.div
@@ -12,29 +12,29 @@ export default function Footer() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16 lg:mb-20"
         >
-          <h2 className="font-display text-3xl lg:text-section text-silver mb-4">
+          <h2 className="font-display text-3xl lg:text-section text-white mb-4">
             Join the Lab
           </h2>
-          <p className="font-body text-lg lg:text-body-lg text-silver/70 max-w-2xl mx-auto mb-8 lg:mb-12">
+          <p className="font-body text-lg lg:text-body-lg text-white/70 max-w-2xl mx-auto mb-8 lg:mb-12">
             We're looking for partners, funders, and researchers who share our vision of agent-led public health.
           </p>
 
           <div className="flex flex-wrap justify-center gap-4 lg:gap-6">
             <a
               href="mailto:partner@healthai-artpark.org"
-              className="px-6 lg:px-8 py-3 lg:py-4 bg-glow-sakhi text-ink font-medium rounded-full hover:scale-105 hover:shadow-lg hover:shadow-glow-sakhi/30 transition-all duration-300"
+              className="px-6 lg:px-8 py-3 lg:py-4 bg-accent-primary text-white font-medium rounded-full hover:bg-accent-primary/90 hover:shadow-lg hover:shadow-accent-primary/30 transition-all duration-300"
             >
               Partner with Us
             </a>
             <a
               href="mailto:funding@healthai-artpark.org"
-              className="px-6 lg:px-8 py-3 lg:py-4 border-2 border-glow-guru text-glow-guru font-medium rounded-full hover:bg-glow-guru/10 transition-all duration-300"
+              className="px-6 lg:px-8 py-3 lg:py-4 border-2 border-accent-guru text-accent-guru font-medium rounded-full hover:bg-accent-guru/10 transition-all duration-300"
             >
               Fund the Work
             </a>
             <a
               href="mailto:careers@healthai-artpark.org"
-              className="px-6 lg:px-8 py-3 lg:py-4 border-2 border-silver/20 text-silver font-medium rounded-full hover:border-silver/40 hover:bg-silver/5 transition-all duration-300"
+              className="px-6 lg:px-8 py-3 lg:py-4 border-2 border-white/20 text-white font-medium rounded-full hover:border-white/40 hover:bg-white/5 transition-all duration-300"
             >
               Join as Researcher
             </a>
@@ -50,29 +50,29 @@ export default function Footer() {
           className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 mb-12 lg:mb-16"
         >
           <div>
-            <h4 className="font-mono text-technical text-silver/50 uppercase mb-4">Location</h4>
-            <p className="font-body text-silver/80">
+            <h4 className="font-mono text-technical text-white/50 uppercase mb-4">Location</h4>
+            <p className="font-body text-white/80">
               ARTPARK<br />
               Indian Institute of Science<br />
               Bangalore 560012, India
             </p>
           </div>
           <div>
-            <h4 className="font-mono text-technical text-silver/50 uppercase mb-4">Contact</h4>
-            <p className="font-body text-silver/80">
-              <a href="mailto:hello@healthai-artpark.org" className="hover:text-glow-sakhi transition-colors">
+            <h4 className="font-mono text-technical text-white/50 uppercase mb-4">Contact</h4>
+            <p className="font-body text-white/80">
+              <a href="mailto:hello@healthai-artpark.org" className="hover:text-accent-primary transition-colors">
                 hello@healthai-artpark.org
               </a>
             </p>
           </div>
           <div>
-            <h4 className="font-mono text-technical text-silver/50 uppercase mb-4">Connect</h4>
+            <h4 className="font-mono text-technical text-white/50 uppercase mb-4">Connect</h4>
             <div className="flex gap-4">
               <a
                 href="https://twitter.com/artaboratories"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-silver/60 hover:text-glow-sakhi transition-colors"
+                className="text-white/60 hover:text-accent-primary transition-colors"
                 aria-label="Twitter"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -83,7 +83,7 @@ export default function Footer() {
                 href="https://linkedin.com/company/artpark"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-silver/60 hover:text-glow-sakhi transition-colors"
+                className="text-white/60 hover:text-accent-primary transition-colors"
                 aria-label="LinkedIn"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -94,7 +94,7 @@ export default function Footer() {
                 href="https://github.com/artpark"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-silver/60 hover:text-glow-sakhi transition-colors"
+                className="text-white/60 hover:text-accent-primary transition-colors"
                 aria-label="GitHub"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -106,12 +106,12 @@ export default function Footer() {
         </motion.div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-silver/10 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-2">
-            <span className="font-display text-xl text-silver">HealthAI</span>
-            <span className="font-mono text-technical text-silver/40">@ ARTPARK</span>
+            <span className="font-display text-xl text-white">HealthAI</span>
+            <span className="font-mono text-technical text-white/40">@ ARTPARK</span>
           </div>
-          <p className="font-mono text-technical text-silver/40">
+          <p className="font-mono text-technical text-white/40">
             &copy; {new Date().getFullYear()} ARTPARK, IISc Bangalore. All rights reserved.
           </p>
         </div>

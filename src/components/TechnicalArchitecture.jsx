@@ -61,7 +61,7 @@ const pillars = [
 
 export default function TechnicalArchitecture() {
   return (
-    <section className="section-padding bg-ink">
+    <section className="section-padding bg-paper">
       <div className="max-content">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -70,10 +70,10 @@ export default function TechnicalArchitecture() {
           transition={{ duration: 0.6 }}
           className="mb-12 lg:mb-16"
         >
-          <h2 className="font-display text-3xl lg:text-section text-silver mb-4">
+          <h2 className="font-display text-3xl lg:text-section text-charcoal mb-4">
             Engineering Trust
           </h2>
-          <p className="font-body text-lg lg:text-body-lg text-silver/70 max-w-2xl">
+          <p className="font-body text-lg lg:text-body-lg text-slate max-w-2xl">
             Building AI for healthcare demands exceptional rigor. Our technical architecture prioritizes safety, accuracy, and privacy at every layer.
           </p>
         </motion.div>
@@ -86,17 +86,17 @@ export default function TechnicalArchitecture() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="p-6 lg:p-8 rounded-3xl bg-slate/30 border border-silver/10"
+              className="p-6 lg:p-8 rounded-2xl bg-cream border border-border"
             >
-              <div className="w-14 h-14 mb-6 rounded-2xl bg-glow-sakhi/10 flex items-center justify-center text-glow-sakhi">
+              <div className="w-14 h-14 mb-6 rounded-2xl bg-accent-primary/10 flex items-center justify-center text-accent-primary">
                 {pillar.icon}
               </div>
 
-              <h3 className="font-display text-xl lg:text-subsection text-silver mb-3">
+              <h3 className="font-display text-xl lg:text-subsection text-charcoal mb-3">
                 {pillar.title}
               </h3>
 
-              <p className="font-body text-body text-silver/70 mb-6">
+              <p className="font-body text-body text-slate mb-6">
                 {pillar.description}
               </p>
 
@@ -104,9 +104,9 @@ export default function TechnicalArchitecture() {
                 {pillar.specs.map((spec, specIdx) => (
                   <li
                     key={specIdx}
-                    className="flex items-center gap-3 font-mono text-technical text-silver/60"
+                    className="flex items-center gap-3 font-mono text-technical text-muted"
                   >
-                    <svg className="w-4 h-4 text-glow-sakhi flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 text-accent-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     {spec}

@@ -21,7 +21,7 @@ const totalStats = {
 
 export default function GeographicFootprint() {
   return (
-    <section className="section-padding bg-slate/30">
+    <section className="section-padding bg-cream">
       <div className="max-content">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -30,10 +30,10 @@ export default function GeographicFootprint() {
           transition={{ duration: 0.6 }}
           className="mb-12 lg:mb-16"
         >
-          <h2 className="font-display text-3xl lg:text-section text-silver mb-4">
+          <h2 className="font-display text-3xl lg:text-section text-charcoal mb-4">
             Geographic Footprint
           </h2>
-          <p className="font-body text-lg lg:text-body-lg text-silver/70 max-w-2xl">
+          <p className="font-body text-lg lg:text-body-lg text-slate max-w-2xl">
             Deployed across 9 states, supporting frontline health workers in India's most populous regions.
           </p>
         </motion.div>
@@ -49,10 +49,10 @@ export default function GeographicFootprint() {
           {Object.entries(totalStats).map(([key, value]) => (
             <div
               key={key}
-              className="p-6 rounded-2xl bg-ink border border-silver/10 text-center"
+              className="p-6 rounded-2xl bg-paper border border-border text-center"
             >
-              <p className="font-display text-3xl lg:text-4xl text-glow-sakhi mb-2">{value}</p>
-              <p className="font-mono text-technical text-silver/50 uppercase">{key}</p>
+              <p className="font-display text-3xl lg:text-4xl text-accent-primary mb-2">{value}</p>
+              <p className="font-mono text-technical text-muted uppercase">{key}</p>
             </div>
           ))}
         </motion.div>
@@ -76,7 +76,7 @@ export default function GeographicFootprint() {
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="0.5"
-                  className="text-silver/20"
+                  className="text-border"
                 />
                 {/* State dots */}
                 {[
@@ -95,7 +95,7 @@ export default function GeographicFootprint() {
                     cx={state.x}
                     cy={state.y}
                     r="3"
-                    className="fill-glow-sakhi"
+                    className="fill-accent-primary"
                     initial={{ scale: 0, opacity: 0 }}
                     whileInView={{ scale: 1, opacity: 1 }}
                     viewport={{ once: true }}
@@ -106,7 +106,7 @@ export default function GeographicFootprint() {
             </div>
 
             {/* Glow effect */}
-            <div className="absolute inset-0 bg-gradient-radial from-glow-sakhi/10 to-transparent rounded-full blur-3xl" />
+            <div className="absolute inset-0 bg-gradient-radial from-accent-primary/5 to-transparent rounded-full blur-3xl" />
           </motion.div>
 
           {/* State List */}
@@ -118,18 +118,18 @@ export default function GeographicFootprint() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
-                className="flex items-center justify-between p-4 rounded-xl bg-ink border border-silver/10 hover:border-glow-sakhi/30 transition-colors"
+                className="flex items-center justify-between p-4 rounded-xl bg-paper border border-border hover:border-accent-primary/30 transition-colors"
               >
                 <div className="flex items-center gap-4">
-                  <div className="w-2 h-2 rounded-full bg-glow-sakhi" />
-                  <span className="font-body text-silver">{state.name}</span>
+                  <div className="w-2 h-2 rounded-full bg-accent-primary" />
+                  <span className="font-body text-charcoal">{state.name}</span>
                 </div>
                 <div className="flex items-center gap-4">
-                  <span className="font-mono text-technical text-silver/60">{state.users} users</span>
+                  <span className="font-mono text-technical text-muted">{state.users} users</span>
                   <span className={`px-2 py-1 rounded-full text-xs font-mono ${
                     state.status === 'Live'
-                      ? 'bg-glow-sakhi/20 text-glow-sakhi'
-                      : 'bg-glow-guru/20 text-glow-guru'
+                      ? 'bg-accent-sakhi/10 text-accent-sakhi'
+                      : 'bg-accent-guru/10 text-accent-guru'
                   }`}>
                     {state.status}
                   </span>
