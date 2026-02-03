@@ -4,6 +4,13 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  safelist: [
+    // Agent card colors
+    'bg-brand-light', 'text-brand-primary', 'border-brand-primary',
+    'bg-amber-100', 'text-amber-600', 'border-amber-600', 'bg-amber-50', 'border-amber-500',
+    'bg-blue-100', 'text-blue-600', 'border-blue-600', 'bg-blue-50', 'border-blue-500',
+    'bg-rose-100', 'text-rose-600', 'border-rose-600', 'bg-rose-50', 'border-rose-500',
+  ],
   theme: {
     extend: {
       colors: {
