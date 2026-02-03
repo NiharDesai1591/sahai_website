@@ -4,8 +4,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 const navLinks = [
   { name: 'The Thesis', href: '#thesis' },
   { name: 'Agents', href: '#agents' },
-  { name: 'Narrative', href: '#day-in-life' },
-  { name: 'Results', href: '#results' },
+  { name: 'Narrative', href: '#narrative' },
+  { name: 'About', href: '#about' },
+  { name: 'Contact', href: '#contact' },
 ];
 
 export default function Navigation() {
@@ -64,8 +65,8 @@ export default function Navigation() {
         transition={{ duration: 0.3 }}
         className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 hidden md:block"
       >
-        <div className="bg-paper/90 backdrop-blur-xl px-2 py-2 rounded-full shadow-lg border border-border">
-          <ul className="flex items-center gap-1">
+        <div className="bg-surface/90 backdrop-blur-lg border border-border rounded-full px-8 py-4 shadow-lg">
+          <ul className="flex items-center gap-8">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.substring(1);
               return (
@@ -73,10 +74,10 @@ export default function Navigation() {
                   <a
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className={`block px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 ${
+                    className={`text-sm font-medium transition-all duration-300 ${
                       isActive
-                        ? 'bg-charcoal text-white'
-                        : 'text-slate hover:text-charcoal hover:bg-cream'
+                        ? 'text-brand-primary'
+                        : 'text-text-secondary hover:text-text-primary'
                     }`}
                   >
                     {link.name}
@@ -88,17 +89,17 @@ export default function Navigation() {
         </div>
       </motion.nav>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation Button */}
       <motion.button
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        className="fixed bottom-6 right-6 z-50 md:hidden w-14 h-14 bg-paper rounded-full flex items-center justify-center shadow-lg border border-border"
+        className="fixed bottom-6 right-6 z-50 md:hidden w-14 h-14 bg-surface rounded-full flex items-center justify-center shadow-lg border border-border"
         aria-label="Toggle menu"
       >
         <svg
-          className="w-6 h-6 text-charcoal"
+          className="w-6 h-6 text-text-primary"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -128,7 +129,7 @@ export default function Navigation() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 bg-paper/98 backdrop-blur-xl md:hidden"
+            className="fixed inset-0 z-40 bg-surface/98 backdrop-blur-xl md:hidden"
           >
             <nav className="h-full flex items-center justify-center">
               <ul className="space-y-6 text-center">
@@ -142,7 +143,7 @@ export default function Navigation() {
                     <a
                       href={link.href}
                       onClick={(e) => handleNavClick(e, link.href)}
-                      className="text-2xl font-display text-charcoal hover:text-accent-primary transition-colors"
+                      className="text-2xl font-display text-text-primary hover:text-brand-primary transition-colors"
                     >
                       {link.name}
                     </a>
