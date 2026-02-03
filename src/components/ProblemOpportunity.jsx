@@ -133,6 +133,71 @@ const ProblemOpportunity = () => {
             </div>
           </motion.div>
         </div>
+
+        {/* India's Position - Full Width Section Below */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-20 pt-16 border-t border-gray-200"
+        >
+          <h3 className="font-display text-h2 text-text-primary text-center mb-12">
+            India is uniquely positioned for this leap
+          </h3>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <div className="flex gap-4 items-start">
+              <div className="w-12 h-12 rounded-full bg-brand-light flex items-center justify-center flex-shrink-0">
+                <span className="text-brand-primary font-semibold text-lg">1</span>
+              </div>
+              <div>
+                <h5 className="font-semibold text-text-primary mb-2">Digital Public Infrastructure</h5>
+                <p className="text-body text-text-secondary">
+                  Aadhaar, UPI, ABDM give agents the foundational rails to
+                  authenticate, consent, and transact
+                </p>
+              </div>
+            </div>
+
+            <div className="flex gap-4 items-start">
+              <div className="w-12 h-12 rounded-full bg-brand-light flex items-center justify-center flex-shrink-0">
+                <span className="text-brand-primary font-semibold text-lg">2</span>
+              </div>
+              <div>
+                <h5 className="font-semibold text-text-primary mb-2">Bhashini Language AI</h5>
+                <p className="text-body text-text-secondary">
+                  Building foundational AI Blocks for real Indian speech
+                </p>
+              </div>
+            </div>
+
+            <div className="flex gap-4 items-start">
+              <div className="w-12 h-12 rounded-full bg-brand-light flex items-center justify-center flex-shrink-0">
+                <span className="text-brand-primary font-semibold text-lg">3</span>
+              </div>
+              <div>
+                <h5 className="font-semibold text-text-primary mb-2">Global Scale</h5>
+                <p className="text-body text-text-secondary">
+                  Scale that makes the investment worthwhile and learnings
+                  globally exportable
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Vision Statement */}
+          <div className="max-w-4xl mx-auto">
+            <div className="border-l-4 border-brand-primary pl-6 py-2">
+              <p className="text-body-lg text-text-primary italic">
+                "If a Public Agent works for an ANM in Uttar Pradesh, it will
+                generalize to Kenya, Nigeria, Brazil. India becomes a producer of
+                globally exportable health infrastructure—not a consumer of
+                Silicon Valley's tools."
+              </p>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
