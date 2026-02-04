@@ -118,27 +118,30 @@ const colorClasses = {
   },
 };
 
-// Compact Agent Card for single-line display
+// Compact Agent Card with vertical layout
 const CompactAgentCard = ({ agent, onClick }) => {
   const colors = colorClasses[agent.color];
 
   return (
     <motion.button
       onClick={onClick}
-      className={`flex items-center gap-3 px-4 py-3 rounded-xl border border-border bg-surface ${colors.hoverBg} transition-all duration-200 cursor-pointer hover:shadow-md`}
+      className={`flex flex-col items-center text-center px-6 py-6 rounded-xl border border-border bg-surface ${colors.hoverBg} transition-all duration-200 cursor-pointer hover:shadow-md min-w-[180px]`}
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
     >
       {/* Icon */}
-      <div className={`w-10 h-10 rounded-full ${colors.bg} flex items-center justify-center flex-shrink-0`}>
+      <div className={`w-14 h-14 rounded-full ${colors.bg} flex items-center justify-center mb-4`}>
         <span className={colors.text}>{agent.icon}</span>
       </div>
 
-      {/* Text */}
-      <div className="text-left">
-        <h4 className="font-display text-lg text-text-primary">{agent.name}</h4>
-        <p className={`text-xs ${colors.text} font-medium`}>{agent.subtitle}</p>
-      </div>
+      {/* Name */}
+      <h4 className="font-display text-xl text-text-primary mb-1">{agent.name}</h4>
+
+      {/* Subtitle */}
+      <p className={`text-xs ${colors.text} font-semibold uppercase tracking-wider mb-2`}>{agent.subtitle}</p>
+
+      {/* Role */}
+      <p className="text-body-sm text-text-tertiary">{agent.role}</p>
     </motion.button>
   );
 };

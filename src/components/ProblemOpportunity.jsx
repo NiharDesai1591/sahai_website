@@ -187,17 +187,6 @@ const ProblemOpportunity = () => {
             </div>
           </div>
 
-          {/* Vision Statement */}
-          <div className="max-w-4xl mx-auto">
-            <div className="border-l-4 border-brand-primary pl-6 py-2">
-              <p className="text-body-lg text-text-primary italic">
-                "If a Public Agent works for an ANM in Uttar Pradesh, it will
-                generalize to Kenya, Nigeria, Brazil. India becomes a producer of
-                globally exportable health infrastructure—not a consumer of
-                Silicon Valley's tools."
-              </p>
-            </div>
-          </div>
         </motion.div>
       </div>
     </section>
