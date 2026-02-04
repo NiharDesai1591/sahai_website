@@ -1,29 +1,21 @@
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
-import LeapfrogThesis from './components/LeapfrogThesis';
-import AgentFramework from './components/AgentFramework';
-import DayInTheLife from './components/DayInTheLife';
-import ProjectGallery from './components/ProjectGallery';
-import TechnicalArchitecture from './components/TechnicalArchitecture';
-import TeamSection from './components/TeamSection';
-import PartnersRecognition from './components/PartnersRecognition';
-import GeographicFootprint from './components/GeographicFootprint';
+import ProblemOpportunity from './components/ProblemOpportunity';
+import AgentPersonas from './components/AgentPersonas';
+import DayInLife from './components/DayInLife';
+import WhyUsHowWeWork from './components/WhyUsHowWeWork';
 import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="bg-ink min-h-screen">
+    <div className="bg-background min-h-screen">
       <Navigation />
       <main>
         <Hero />
-        <LeapfrogThesis />
-        <AgentFramework />
-        <DayInTheLife />
-        <ProjectGallery />
-        <TechnicalArchitecture />
-        <TeamSection />
-        <PartnersRecognition />
-        <GeographicFootprint />
+        <ProblemOpportunity />
+        <AgentPersonas />
+        <DayInLife />
+        <WhyUsHowWeWork />
         <Footer />
       </main>
     </div>
