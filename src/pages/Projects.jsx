@@ -35,6 +35,7 @@ const projects = [
       'Curated, design-led responses',
       'Deployed in 3 languages',
     ],
+    detailPage: '/projects/hrp-copilot',
   },
   {
     id: 'piramal-primary',
@@ -119,6 +120,21 @@ const ProjectCard = ({ project, index }) => {
             ))}
           </ul>
         </div>
+
+        {/* View Project Link */}
+        {project.detailPage && (
+          <div className="pt-4">
+            <Link
+              to={project.detailPage}
+              className="inline-flex items-center gap-2 text-brand-primary hover:text-brand-hover font-medium transition-colors"
+            >
+              View Project Details
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </Link>
+          </div>
+        )}
       </div>
     </motion.div>
   );
