@@ -28,12 +28,12 @@ const projects = [
     partner: 'ARMMAN',
     title: 'Maternal Health Support',
     geography: 'UP, Telangana, Maharashtra',
-    summary: 'Voice-based maternal health guidance for ASHAs supporting high-risk pregnancies and antenatal care.',
-    agents: ['sakhi', 'guru', 'clerk'],
+    summary: 'Conversational assistant for ANMs delivering real-time clinical guidance, bite-sized personalized learning, and safe escalation to medical experts.',
+    agents: ['sakhi', 'guru'],
     highlights: [
-      'Real-time voice support for home visits',
-      'High-risk pregnancy protocol guidance',
-      'Automated ANC register updates',
+      'Low latency, low cost, accurate responses',
+      'Curated, design-led responses',
+      'Deployed in 3 languages',
     ],
   },
   {
