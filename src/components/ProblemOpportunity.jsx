@@ -24,8 +24,9 @@ const ProblemOpportunity = () => {
             <div className="space-y-6 flex-1 flex flex-col">
               <p className="text-body-lg text-text-primary leading-relaxed">
                 India's public health system runs on the backs of nearly a million
-                frontline health workers—ASHAs, ANMs, and CHWs—who navigate an
-                impossible operational landscape every day.
+                frontline health workers—ASHAs, ANMs, and AWWs—who navigate an
+                impossible operational landscape every day. Not to forget the dedicated
+                administrative and medical officers who oversee this mammoth operation.
               </p>
 
               <p className="text-body text-text-secondary leading-relaxed">
@@ -91,7 +92,7 @@ const ProblemOpportunity = () => {
 
               <div className="bg-background p-6 rounded-xl space-y-4">
                 <h4 className="font-body text-body-lg font-semibold text-text-primary">
-                  When we say "agent," we mean an LLM-powered system that can:
+                  Agents are LLM-powered systems that can:
                 </h4>
                 <ul className="space-y-2 text-body text-text-secondary">
                   <li className="flex gap-3">
