@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
@@ -52,47 +51,16 @@ const Hero = () => {
         </a>
       </motion.div>
 
-      {/* Scroll indicator with navigation pills */}
+      {/* Scroll indicator */}
       <motion.div
         className="mt-20"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.5 }}
       >
-        <div className="flex items-center justify-center gap-4 mb-4">
-          <svg className="w-5 h-5 text-brand-primary animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
-        </div>
-        <div className="bg-surface border border-border rounded-full px-6 py-3 shadow-sm">
-          <ul className="flex flex-wrap justify-center gap-4 md:gap-6 text-sm text-text-secondary">
-            <li>
-              <a href="#thesis" className="hover:text-brand-primary transition-colors">
-                The Thesis
-              </a>
-            </li>
-            <li>
-              <a href="#agents" className="hover:text-brand-primary transition-colors">
-                Agents
-              </a>
-            </li>
-            <li>
-              <a href="#narrative" className="hover:text-brand-primary transition-colors">
-                Narrative
-              </a>
-            </li>
-            <li>
-              <Link to="/about" className="hover:text-brand-primary transition-colors">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link to="/projects" className="hover:text-brand-primary transition-colors">
-                Projects
-              </Link>
-            </li>
-          </ul>
-        </div>
+        <svg className="w-5 h-5 text-brand-primary animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
       </motion.div>
     </section>
   );
