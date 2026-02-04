@@ -251,31 +251,34 @@ const AgentPersonas = () => {
       <div className="max-content">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <motion.h2
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="font-display text-xl md:text-2xl text-text-secondary mb-2"
+          >
+            Our Architecture
+          </motion.p>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.05 }}
             className="font-display text-3xl md:text-display mb-4"
           >
-            Our Architecture: Four Personas. <span className="text-brand-primary italic">Infinite Configurations.</span>
+            Four Personas. <span className="text-brand-primary italic">Infinite Configurations.</span>
           </motion.h2>
-          <motion.div
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-body-lg text-text-secondary max-w-3xl mx-auto space-y-3"
+            className="text-body-lg text-text-secondary max-w-3xl mx-auto"
           >
-            <p>
-              These are personas, not products. Each has many instantiations—purpose-built
-              for specific roles, states, and programs. One architecture, adaptable to context.
-            </p>
-            <p>
-              These aren't four separate products. They're <strong className="text-brand-primary">Public Agents
-              orchestrating as one system</strong> through DPI Workflows.
-            </p>
-          </motion.div>
+            These are personas, not products. Each has many instantiations—purpose-built
+            for the specific roles, geography, and programs. One architecture, adaptable to context.
+          </motion.p>
         </div>
 
         {/* Compact Agent Cards - Single Line */}
