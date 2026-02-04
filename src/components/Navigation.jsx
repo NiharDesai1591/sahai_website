@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
+// Navigation links - mix of hash anchors and routes
 const navLinks = [
-  { name: 'The Thesis', href: '#thesis' },
-  { name: 'Agents', href: '#agents' },
-  { name: 'Narrative', href: '#narrative' },
-  { name: 'About', href: '#about' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'The Thesis', href: '#thesis', type: 'hash' },
+  { name: 'Agents', href: '#agents', type: 'hash' },
+  { name: 'Narrative', href: '#narrative', type: 'hash' },
+  { name: 'About', href: '/about', type: 'route' },
+  { name: 'Projects', href: '/projects', type: 'route' },
+  { name: 'Contact', href: '#contact', type: 'hash' },
 ];
 
 export default function Navigation() {
@@ -14,6 +17,10 @@ export default function Navigation() {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,28 +36,51 @@ export default function Navigation() {
 
       setLastScrollY(currentScrollY);
 
-      // Update active section
-      const sections = navLinks.map(link => link.href.substring(1));
-      for (const section of sections.reverse()) {
-        const element = document.getElementById(section);
-        if (element && element.getBoundingClientRect().top <= 200) {
-          setActiveSection(section);
-          break;
+      // Update active section only on home page
+      if (isHomePage) {
+        const hashLinks = navLinks.filter(link => link.type === 'hash');
+        const sections = hashLinks.map(link => link.href.substring(1));
+        for (const section of sections.reverse()) {
+          const element = document.getElementById(section);
+          if (element && element.getBoundingClientRect().top <= 200) {
+            setActiveSection(section);
+            break;
+          }
         }
       }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+  }, [lastScrollY, isHomePage]);
 
-  const handleNavClick = (e, href) => {
-    e.preventDefault();
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+  const handleNavClick = (e, link) => {
+    if (link.type === 'hash') {
+      e.preventDefault();
+      if (!isHomePage) {
+        // Navigate to home page first, then scroll
+        navigate('/');
+        setTimeout(() => {
+          const element = document.querySelector(link.href);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      } else {
+        const element = document.querySelector(link.href);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
     }
     setIsMobileMenuOpen(false);
+  };
+
+  const isActive = (link) => {
+    if (link.type === 'route') {
+      return location.pathname === link.href;
+    }
+    return isHomePage && activeSection === link.href.substring(1);
   };
 
   return (
@@ -68,14 +98,32 @@ export default function Navigation() {
         <div className="bg-surface/90 backdrop-blur-lg border border-border rounded-full px-8 py-4 shadow-lg">
           <ul className="flex items-center gap-8">
             {navLinks.map((link) => {
-              const isActive = activeSection === link.href.substring(1);
+              const active = isActive(link);
+
+              if (link.type === 'route') {
+                return (
+                  <li key={link.name}>
+                    <Link
+                      to={link.href}
+                      className={`text-sm font-medium transition-all duration-300 ${
+                        active
+                          ? 'text-brand-primary'
+                          : 'text-text-secondary hover:text-text-primary'
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                );
+              }
+
               return (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
+                    onClick={(e) => handleNavClick(e, link)}
                     className={`text-sm font-medium transition-all duration-300 ${
-                      isActive
+                      active
                         ? 'text-brand-primary'
                         : 'text-text-secondary hover:text-text-primary'
                     }`}
@@ -140,13 +188,23 @@ export default function Navigation() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
                   >
-                    <a
-                      href={link.href}
-                      onClick={(e) => handleNavClick(e, link.href)}
-                      className="text-2xl font-display text-text-primary hover:text-brand-primary transition-colors"
-                    >
-                      {link.name}
-                    </a>
+                    {link.type === 'route' ? (
+                      <Link
+                        to={link.href}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="text-2xl font-display text-text-primary hover:text-brand-primary transition-colors"
+                      >
+                        {link.name}
+                      </Link>
+                    ) : (
+                      <a
+                        href={link.href}
+                        onClick={(e) => handleNavClick(e, link)}
+                        className="text-2xl font-display text-text-primary hover:text-brand-primary transition-colors"
+                      >
+                        {link.name}
+                      </a>
+                    )}
                   </motion.li>
                 ))}
               </ul>
