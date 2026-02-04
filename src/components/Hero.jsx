@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
@@ -30,8 +31,7 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
-        A frontier lab building Public Agents for India's health system—creating
-        reusable infrastructure while solving hard problems in the field.
+        An applied AI lab using frontier technologies to build Agents as building blocks to reimagining India's Health System.
       </motion.p>
 
       {/* CTAs */}
@@ -82,9 +82,14 @@ const Hero = () => {
               </a>
             </li>
             <li>
-              <a href="#about" className="hover:text-brand-primary transition-colors">
+              <Link to="/about" className="hover:text-brand-primary transition-colors">
                 About
-              </a>
+              </Link>
+            </li>
+            <li>
+              <Link to="/projects" className="hover:text-brand-primary transition-colors">
+                Projects
+              </Link>
             </li>
           </ul>
         </div>
