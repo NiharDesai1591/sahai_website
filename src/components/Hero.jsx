@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
@@ -82,9 +83,14 @@ const Hero = () => {
               </a>
             </li>
             <li>
-              <a href="#about" className="hover:text-brand-primary transition-colors">
+              <Link to="/about" className="hover:text-brand-primary transition-colors">
                 About
-              </a>
+              </Link>
+            </li>
+            <li>
+              <Link to="/projects" className="hover:text-brand-primary transition-colors">
+                Projects
+              </Link>
             </li>
           </ul>
         </div>
