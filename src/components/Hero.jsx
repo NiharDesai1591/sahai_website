@@ -1,6 +1,14 @@
 import { motion } from 'framer-motion';
 
 const Hero = () => {
+  const scrollToSection = (e, sectionId) => {
+    e.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="min-h-screen flex flex-col items-center justify-center bg-background px-6">
       {/* Main Headline */}
@@ -40,15 +48,21 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.3 }}
       >
-        <a href="#agents" className="btn-primary">
+        <button
+          onClick={(e) => scrollToSection(e, 'agents')}
+          className="btn-primary"
+        >
           View Our Work
-        </a>
-        <a href="#narrative" className="btn-secondary inline-flex items-center gap-2">
+        </button>
+        <button
+          onClick={(e) => scrollToSection(e, 'narrative')}
+          className="btn-secondary inline-flex items-center gap-2"
+        >
           The Vision
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
-        </a>
+        </button>
       </motion.div>
 
       {/* Scroll indicator */}
