@@ -47,9 +47,7 @@ const timeSlots = [
     label: 'The Visit',
     location: 'Beneficiary Home',
     type: 'Assisted Care Delivery',
-    description: "During the visit, Sakhi guides through protocols via voice. When a high-risk indicator is detected, Guru provides immediate clinical guidance. Clerk silently prepares the paperwork.",
-    quote: "I focus on the mother. The system handles everything else.",
-    quotee: "ASHA, Rajasthan",
+    description: "During the visit, Sakhi remains in silent listener mode—ambient capture. Just after the ASHA steps out of the house, Sakhi summarizes the visit, clarifies any gap in data. All this happens locally without any risk to privacy. When a high-risk indicator is detected, Guru provides immediate clinical guidance. Clerk silently prepares the paperwork.",
     agents: [
       { name: 'Sakhi', role: 'voice', color: 'brand-primary' },
       { name: 'Guru', role: 'knowledge', color: 'amber-600' },
@@ -66,11 +64,9 @@ const timeSlots = [
   {
     time: '19:00',
     label: 'Evening',
-    location: 'Sub-Center',
+    location: 'Home',
     type: 'Documentation & Planning',
     description: "Clerk has already updated all 6 registers. Analyst surfaces tomorrow's priorities. The worker reviews a clean summary—what used to take 2 hours now takes 10 minutes.",
-    quote: "My paperwork is done before I even sit down.",
-    quotee: "ANM, Bihar",
     agents: [
       { name: 'Clerk', role: 'forms', color: 'blue-600' },
       { name: 'Analyst', role: 'data', color: 'rose-600' }
@@ -101,7 +97,7 @@ const DayInLife = () => {
             transition={{ duration: 0.6 }}
             className="font-display text-3xl md:text-display mb-4"
           >
-            08:00 to 20:00: <span className="text-brand-primary italic">How They Work Together</span>
+            They work <span className="text-brand-primary italic">in sync</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -214,13 +210,15 @@ const DayInLife = () => {
               {activeSlot.description}
             </p>
 
-            {/* Quote */}
-            <div className="bg-brand-light/30 border-l-4 border-brand-primary p-6 rounded-r-lg">
-              <p className="text-body text-text-primary italic mb-2">
-                "{activeSlot.quote}"
-              </p>
-              <p className="text-body-sm text-text-tertiary">— {activeSlot.quotee}</p>
-            </div>
+            {/* Quote - only show if exists */}
+            {activeSlot.quote && (
+              <div className="bg-brand-light/30 border-l-4 border-brand-primary p-6 rounded-r-lg">
+                <p className="text-body text-text-primary italic mb-2">
+                  "{activeSlot.quote}"
+                </p>
+                <p className="text-body-sm text-text-tertiary">— {activeSlot.quotee}</p>
+              </div>
+            )}
 
             {/* Agents Active */}
             <div className="bg-background p-6 rounded-xl">

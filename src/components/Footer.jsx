@@ -40,7 +40,7 @@ const Footer = () => {
             transition={{ duration: 0.6 }}
             className="font-display text-3xl md:text-display mb-8"
           >
-            Join the Work
+            Join Us
           </motion.h2>
 
           <motion.p
