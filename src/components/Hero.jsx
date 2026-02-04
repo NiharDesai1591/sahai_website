@@ -43,7 +43,7 @@ const Hero = () => {
         <a href="#agents" className="btn-primary">
           View Our Work
         </a>
-        <a href="#thesis" className="btn-secondary inline-flex items-center gap-2">
+        <a href="#narrative" className="btn-secondary inline-flex items-center gap-2">
           The Vision
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
