@@ -101,7 +101,7 @@ export default function Navigation() {
           {/* Logo */}
           <Link to="/" className="flex flex-col" style={{ width: 'fit-content' }}>
             <span className="font-extrabold text-text-primary leading-none block" style={{ fontSize: '2rem', letterSpacing: '0.18em' }}>SAHAI</span>
-            <span className="font-semibold uppercase text-text-tertiary leading-tight block" style={{ fontSize: '0.48rem', letterSpacing: '0.165em' }}>Solutions for Accessible Health using AI</span>
+            <span className="font-semibold uppercase text-text-tertiary leading-tight block" style={{ fontSize: '0.48rem', letterSpacing: '0.31em' }}>Solutions for Accessible Health using AI</span>
           </Link>
 
           {/* Nav Links */}

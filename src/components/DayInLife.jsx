@@ -35,20 +35,24 @@ const DayInLife = () => {
           </motion.p>
         </div>
 
-        {/* Day in Life Image */}
+        {/* Day in Life Image - full width for sharpness */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.15 }}
-          className="flex justify-center"
+          className="flex justify-center -mx-6"
         >
-          <img
-            src={import.meta.env.BASE_URL + 'dayinlife.png'}
-            alt="A day in the life of a health worker with AI agents — from morning training through evening documentation"
-            className="w-full rounded-2xl shadow-sm border border-border"
-            style={{ imageRendering: 'auto', maxWidth: '100%' }}
-          />
+          <picture>
+            <img
+              src={import.meta.env.BASE_URL + 'dayinlife.png'}
+              alt="A day in the life of a health worker with AI agents — from morning training through evening documentation"
+              width={2816}
+              height={1504}
+              className="rounded-2xl shadow-sm border border-border"
+              style={{ width: '100%', maxWidth: '1400px', height: 'auto' }}
+            />
+          </picture>
         </motion.div>
       </div>
     </section>
