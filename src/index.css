@@ -14,9 +14,9 @@
     margin: 0;
   }
 
-  /* Custom scrollbar for light theme */
+  /* Custom scrollbar for dark theme */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
   }
 
   ::-webkit-scrollbar-track {
@@ -35,20 +35,24 @@
 @layer components {
   .btn-primary {
     @apply px-8 py-3.5 bg-brand-primary text-white font-medium rounded-full
-           hover:bg-brand-hover transition-all duration-200 hover:-translate-y-0.5
-           shadow-lg hover:shadow-xl;
+           hover:bg-brand-hover transition-all duration-300 hover:-translate-y-0.5
+           shadow-[0_0_20px_rgba(20,184,166,0.3)] hover:shadow-[0_0_30px_rgba(20,184,166,0.5)];
   }
 
   .btn-secondary {
-    @apply px-8 py-3.5 bg-surface text-text-primary font-medium rounded-full
-           border-2 border-border hover:border-brand-primary hover:text-brand-primary
-           transition-all duration-200;
+    @apply px-8 py-3.5 bg-transparent text-text-primary font-medium rounded-full
+           border border-border hover:border-brand-primary hover:text-brand-primary
+           transition-all duration-300;
   }
 
   .card {
-    @apply bg-surface border border-border rounded-3xl p-12
-           transition-all duration-300 hover:border-brand-primary
-           hover:shadow-xl hover:-translate-y-1;
+    @apply bg-surface border border-border rounded-2xl p-8
+           transition-all duration-300 hover:border-brand-primary/50
+           hover:shadow-[0_0_30px_rgba(20,184,166,0.08)] hover:-translate-y-1;
+  }
+
+  .glass-card {
+    @apply bg-surface/60 backdrop-blur-xl border border-border/50 rounded-2xl p-8;
   }
 
   .badge {
@@ -68,7 +72,11 @@
 
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-brand-primary to-teal-600 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-brand-primary to-teal-300 bg-clip-text text-transparent;
+  }
+
+  .glow-teal {
+    box-shadow: 0 0 60px rgba(20, 184, 166, 0.15), 0 0 120px rgba(20, 184, 166, 0.05);
   }
 
   .animate-float {
