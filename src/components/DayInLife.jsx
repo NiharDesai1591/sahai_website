@@ -46,7 +46,8 @@ const DayInLife = () => {
           <img
             src={import.meta.env.BASE_URL + 'dayinlife.png'}
             alt="A day in the life of a health worker with AI agents — from morning training through evening documentation"
-            className="w-full max-w-5xl rounded-2xl shadow-sm border border-border"
+            className="w-full rounded-2xl shadow-sm border border-border"
+            style={{ imageRendering: 'auto', maxWidth: '100%' }}
           />
         </motion.div>
       </div>

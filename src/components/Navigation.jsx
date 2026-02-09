@@ -97,11 +97,11 @@ export default function Navigation() {
           scrolled ? 'bg-white/90 backdrop-blur-md border-b border-border shadow-sm' : 'bg-transparent'
         }`}
       >
-        <div className="max-w-content mx-auto px-6 h-16 flex items-center justify-between">
+        <div className="max-w-content mx-auto px-6 h-20 flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex flex-col" style={{ width: 'fit-content' }}>
-            <span className="font-extrabold text-text-primary leading-none block w-full" style={{ fontSize: '1.25rem', letterSpacing: '0.12em' }}>SAHAI</span>
-            <span className="font-bold uppercase text-text-tertiary leading-tight block w-full" style={{ fontSize: '0.32rem', letterSpacing: '0.135em' }}>Solutions for Accessible Health using AI</span>
+            <span className="font-extrabold text-text-primary leading-none block" style={{ fontSize: '2rem', letterSpacing: '0.18em' }}>SAHAI</span>
+            <span className="font-semibold uppercase text-text-tertiary leading-tight block" style={{ fontSize: '0.48rem', letterSpacing: '0.165em' }}>Solutions for Accessible Health using AI</span>
           </Link>
 
           {/* Nav Links */}
