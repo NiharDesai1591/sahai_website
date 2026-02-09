@@ -43,16 +43,19 @@ const DayInLife = () => {
           transition={{ duration: 0.5, delay: 0.15 }}
           className="flex justify-center -mx-6"
         >
-          <picture>
-            <img
-              src={import.meta.env.BASE_URL + 'dayinlife.png'}
-              alt="A day in the life of a health worker with AI agents — from morning training through evening documentation"
-              width={2816}
-              height={1504}
-              className="rounded-2xl shadow-sm border border-border"
-              style={{ width: '100%', maxWidth: '1400px', height: 'auto' }}
-            />
-          </picture>
+          <img
+            src={import.meta.env.BASE_URL + 'dayinlife.png'}
+            alt="A day in the life of a health worker with AI agents — from morning training through evening documentation"
+            width={2816}
+            height={1504}
+            className="shadow-sm border border-border"
+            style={{
+              width: '100%',
+              maxWidth: '1408px',
+              height: 'auto',
+              imageRendering: '-webkit-optimize-contrast',
+            }}
+          />
         </motion.div>
       </div>
     </section>
