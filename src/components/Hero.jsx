@@ -17,6 +17,23 @@ const Hero = () => {
         backgroundSize: '24px 24px'
       }} />
 
+      {/* SAHAI logo - top left */}
+      <motion.div
+        className="absolute top-8 left-8 z-20"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="flex flex-col">
+          <span className="font-display text-2xl md:text-3xl font-extrabold tracking-tight text-text-primary leading-none">
+            SAHAI
+          </span>
+          <span className="font-display text-[0.45rem] md:text-[0.54rem] font-bold uppercase tracking-[0.28em] md:tracking-[0.34em] text-text-tertiary leading-tight">
+            Solutions for Accessible Health using AI
+          </span>
+        </div>
+      </motion.div>
+
       <div className="relative z-10 flex flex-col items-center">
         {/* Badge */}
         <motion.div
@@ -31,32 +48,22 @@ const Hero = () => {
 
         {/* Main Headline */}
         <motion.h1
-          className="font-display text-5xl md:text-6xl lg:text-hero text-center max-w-5xl mb-6 font-extrabold tracking-tight text-text-primary"
+          className="font-display text-3xl md:text-5xl lg:text-6xl text-center max-w-5xl mb-6 font-extrabold tracking-tight text-text-primary"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          SAHAI
+          Building a Public Health System in the Agentic Era
         </motion.h1>
-
-        {/* Tagline */}
-        <motion.p
-          className="text-xl md:text-2xl lg:text-h2 text-text-primary text-center max-w-3xl mb-4 font-display font-bold"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.15 }}
-        >
-          Solutions for Accessible Health using AI
-        </motion.p>
 
         {/* Description */}
         <motion.p
           className="text-body-lg text-text-secondary text-center max-w-2xl mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
         >
-          An applied AI lab using frontier technologies to build Agents as building blocks to reimagining India's Health System.
+          An applied AI lab translating frontier technologies into deployed infrastructure that strengthens public health
         </motion.p>
 
         {/* CTAs */}

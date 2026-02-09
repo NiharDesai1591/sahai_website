@@ -99,8 +99,9 @@ export default function Navigation() {
       >
         <div className="max-w-content mx-auto px-6 h-16 flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="text-lg font-extrabold tracking-tight text-text-primary">
-            SAHAI
+          <Link to="/" className="flex flex-col">
+            <span className="text-lg font-extrabold tracking-tight text-text-primary leading-none">SAHAI</span>
+            <span className="text-[0.35rem] font-bold uppercase tracking-[0.22em] text-text-tertiary leading-tight">Solutions for Accessible Health using AI</span>
           </Link>
 
           {/* Nav Links */}

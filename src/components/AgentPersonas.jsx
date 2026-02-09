@@ -241,15 +241,6 @@ const AgentPersonas = () => {
     <section id="agents" className="section-padding bg-background">
       <div className="max-content">
         <div className="text-center mb-12">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-label uppercase tracking-widest text-text-tertiary mb-3"
-          >
-            Our Architecture
-          </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
