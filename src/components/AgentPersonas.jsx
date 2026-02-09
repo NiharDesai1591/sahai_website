@@ -7,7 +7,7 @@ const agents = [
     name: 'Sakhi',
     subtitle: 'The Voice in the Pocket',
     role: 'On-the-Job Support Agent | Orchestrator',
-    color: 'teal',
+    color: 'emerald',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
@@ -92,61 +92,53 @@ const agents = [
 ];
 
 const colorClasses = {
-  teal: {
-    bg: 'bg-brand-light',
-    text: 'text-brand-primary',
-    border: 'border-brand-primary',
-    hoverBg: 'hover:bg-brand-light/80',
+  emerald: {
+    bg: 'bg-emerald-50',
+    text: 'text-emerald-700',
+    border: 'border-emerald-200',
+    iconBg: 'bg-emerald-100',
   },
   amber: {
-    bg: 'bg-amber-100',
-    text: 'text-amber-600',
-    border: 'border-amber-500',
-    hoverBg: 'hover:bg-amber-50',
+    bg: 'bg-amber-50',
+    text: 'text-amber-700',
+    border: 'border-amber-200',
+    iconBg: 'bg-amber-100',
   },
   blue: {
-    bg: 'bg-blue-100',
-    text: 'text-blue-600',
-    border: 'border-blue-500',
-    hoverBg: 'hover:bg-blue-50',
+    bg: 'bg-blue-50',
+    text: 'text-blue-700',
+    border: 'border-blue-200',
+    iconBg: 'bg-blue-100',
   },
   rose: {
-    bg: 'bg-rose-100',
-    text: 'text-rose-600',
-    border: 'border-rose-500',
-    hoverBg: 'hover:bg-rose-50',
+    bg: 'bg-rose-50',
+    text: 'text-rose-700',
+    border: 'border-rose-200',
+    iconBg: 'bg-rose-100',
   },
 };
 
-// Compact Agent Card with vertical layout
 const CompactAgentCard = ({ agent, onClick }) => {
   const colors = colorClasses[agent.color];
 
   return (
     <motion.button
       onClick={onClick}
-      className={`flex flex-col items-center text-center px-6 py-6 rounded-xl border border-border bg-surface ${colors.hoverBg} transition-all duration-200 cursor-pointer hover:shadow-md min-w-[180px]`}
+      className="flex flex-col items-center text-center px-6 py-6 rounded-xl bg-white border border-border shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer min-w-[180px]"
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
     >
-      {/* Icon */}
-      <div className={`w-14 h-14 rounded-full ${colors.bg} flex items-center justify-center mb-4`}>
+      <div className={`w-14 h-14 rounded-xl ${colors.iconBg} flex items-center justify-center mb-4`}>
         <span className={colors.text}>{agent.icon}</span>
       </div>
 
-      {/* Name */}
-      <h4 className="font-display text-xl text-text-primary mb-1">{agent.name}</h4>
-
-      {/* Subtitle */}
+      <h4 className="font-display text-xl font-bold text-text-primary mb-1">{agent.name}</h4>
       <p className={`text-xs ${colors.text} font-semibold uppercase tracking-wider mb-2`}>{agent.subtitle}</p>
-
-      {/* Role */}
       <p className="text-body-sm text-text-tertiary">{agent.role}</p>
     </motion.button>
   );
 };
 
-// Full Agent Modal/Popup
 const AgentModal = ({ agent, onClose }) => {
   const colors = colorClasses[agent.color];
 
@@ -156,7 +148,7 @@ const AgentModal = ({ agent, onClose }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
+        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/30 backdrop-blur-sm"
         onClick={onClose}
       >
         <motion.div
@@ -164,25 +156,25 @@ const AgentModal = ({ agent, onClose }) => {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           transition={{ duration: 0.2 }}
-          className="bg-surface rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+          className="bg-white rounded-2xl shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
           <div className={`p-6 border-b border-border ${colors.bg}`}>
             <div className="flex items-start justify-between">
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full bg-white/80 flex items-center justify-center">
+                <div className={`w-14 h-14 rounded-xl ${colors.iconBg} flex items-center justify-center`}>
                   <span className={colors.text}>{agent.icon}</span>
                 </div>
                 <div>
-                  <h3 className="font-display text-2xl text-text-primary">{agent.name}</h3>
+                  <h3 className="font-display text-2xl font-bold text-text-primary">{agent.name}</h3>
                   <p className={`text-sm ${colors.text} font-semibold`}>{agent.subtitle}</p>
                   <p className="text-xs text-text-tertiary mt-1">{agent.role}</p>
                 </div>
               </div>
               <button
                 onClick={onClose}
-                className="p-2 rounded-full hover:bg-white/50 transition-colors"
+                className="p-2 rounded-lg hover:bg-white/50 transition-colors"
               >
                 <svg className="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -193,7 +185,6 @@ const AgentModal = ({ agent, onClose }) => {
 
           {/* Body */}
           <div className="p-6 space-y-6">
-            {/* Description */}
             <div className="space-y-3">
               {agent.description.map((para, idx) => (
                 <p key={idx} className="text-body text-text-secondary leading-relaxed">
@@ -202,21 +193,19 @@ const AgentModal = ({ agent, onClose }) => {
               ))}
             </div>
 
-            {/* AI Blocks */}
-            <div className="bg-background p-4 rounded-lg">
+            <div className="bg-gray-50 p-4 rounded-xl border border-border">
               <p className="text-body-sm font-semibold text-text-primary mb-3">
                 AI Blocks Exposed:
               </p>
               <div className="flex flex-wrap gap-2">
                 {agent.aiBlocks.map((block, idx) => (
-                  <code key={idx} className="font-mono text-body-sm bg-surface px-3 py-1 rounded border border-border">
+                  <code key={idx} className="font-mono text-body-sm bg-white px-3 py-1 rounded-lg border border-border text-text-secondary">
                     {block}
                   </code>
                 ))}
               </div>
             </div>
 
-            {/* Instantiations */}
             <div className="border-t border-border pt-4">
               <p className="text-body-sm font-semibold text-text-primary mb-3">
                 Example Instantiations:
@@ -224,18 +213,17 @@ const AgentModal = ({ agent, onClose }) => {
               <ul className="space-y-2 text-body-sm text-text-secondary">
                 {agent.instantiations.map((item, idx) => (
                   <li key={idx} className="flex gap-2">
-                    <span className={colors.text}>→</span>
+                    <span className="text-text-tertiary">&rarr;</span>
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Quote (optional) */}
             {agent.quote && (
-              <div className={`${colors.bg} p-4 rounded-lg border-l-4 ${colors.border}`}>
+              <div className={`${colors.bg} p-4 rounded-xl border-l-4 ${colors.border}`}>
                 <p className="text-body-sm text-text-primary italic">
-                  "{agent.quote}"
+                  &ldquo;{agent.quote}&rdquo;
                 </p>
               </div>
             )}
@@ -252,14 +240,13 @@ const AgentPersonas = () => {
   return (
     <section id="agents" className="section-padding bg-background">
       <div className="max-content">
-        {/* Section Header */}
         <div className="text-center mb-12">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="font-display text-xl md:text-2xl text-text-secondary mb-2"
+            transition={{ duration: 0.5 }}
+            className="text-label uppercase tracking-widest text-text-tertiary mb-3"
           >
             Our Architecture
           </motion.p>
@@ -267,16 +254,16 @@ const AgentPersonas = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.05 }}
-            className="font-display text-3xl md:text-display mb-4"
+            transition={{ duration: 0.5, delay: 0.05 }}
+            className="font-display text-3xl md:text-display font-bold text-text-primary mb-4"
           >
-            Four Personas. <span className="text-brand-primary italic">Infinite Configurations.</span>
+            Four Personas. <span className="text-text-secondary italic">Infinite Configurations.</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
             className="text-body-lg text-text-secondary max-w-3xl mx-auto"
           >
             These are personas, not products. Each has many instantiations—purpose-built
@@ -284,12 +271,11 @@ const AgentPersonas = () => {
           </motion.p>
         </div>
 
-        {/* Compact Agent Cards - Single Line */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
           className="flex flex-wrap justify-center gap-4"
         >
           {agents.map((agent) => (
@@ -301,19 +287,17 @@ const AgentPersonas = () => {
           ))}
         </motion.div>
 
-        {/* Click hint */}
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
           className="text-center text-body-sm text-text-tertiary mt-6"
         >
           Click on any agent to learn more
         </motion.p>
       </div>
 
-      {/* Agent Modal */}
       {selectedAgent && (
         <AgentModal
           agent={selectedAgent}

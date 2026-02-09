@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
-// Navigation links - mix of hash anchors and routes
 const navLinks = [
   { name: 'The Thesis', href: '#thesis', type: 'hash' },
   { name: 'Agents', href: '#agents', type: 'hash' },
@@ -17,6 +16,7 @@ export default function Navigation() {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -25,6 +25,8 @@ export default function Navigation() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+
+      setScrolled(currentScrollY > 20);
 
       if (currentScrollY < 100) {
         setIsVisible(true);
@@ -36,7 +38,6 @@ export default function Navigation() {
 
       setLastScrollY(currentScrollY);
 
-      // Update active section only on home page
       if (isHomePage) {
         const hashLinks = navLinks.filter(link => link.type === 'hash');
         const sections = hashLinks.map(link => link.href.substring(1));
@@ -58,7 +59,6 @@ export default function Navigation() {
     if (link.type === 'hash') {
       e.preventDefault();
       if (!isHomePage) {
-        // Navigate to home page first, then scroll
         navigate('/');
         setTimeout(() => {
           const element = document.querySelector(link.href);
@@ -85,17 +85,25 @@ export default function Navigation() {
 
   return (
     <>
-      {/* Desktop Navigation - Floating Pill */}
+      {/* Top Navigation Bar - Fixed */}
       <motion.nav
-        initial={{ y: 100, opacity: 0 }}
+        initial={{ y: -100, opacity: 0 }}
         animate={{
-          y: isVisible ? 0 : 100,
+          y: isVisible ? 0 : -100,
           opacity: isVisible ? 1 : 0
         }}
-        transition={{ duration: 0.3 }}
-        className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 hidden md:block"
+        transition={{ duration: 0.2 }}
+        className={`fixed top-0 left-0 right-0 z-50 hidden md:block transition-all duration-200 ${
+          scrolled ? 'bg-white/90 backdrop-blur-md border-b border-border shadow-sm' : 'bg-transparent'
+        }`}
       >
-        <div className="bg-surface/90 backdrop-blur-lg border border-border rounded-full px-8 py-4 shadow-lg">
+        <div className="max-w-content mx-auto px-6 h-16 flex items-center justify-between">
+          {/* Logo */}
+          <Link to="/" className="text-lg font-extrabold tracking-tight text-text-primary">
+            SAHAI
+          </Link>
+
+          {/* Nav Links */}
           <ul className="flex items-center gap-8">
             {navLinks.map((link) => {
               const active = isActive(link);
@@ -105,9 +113,9 @@ export default function Navigation() {
                   <li key={link.name}>
                     <Link
                       to={link.href}
-                      className={`text-sm font-medium transition-all duration-300 ${
+                      className={`text-sm font-medium transition-all duration-200 ${
                         active
-                          ? 'text-brand-primary'
+                          ? 'text-text-primary'
                           : 'text-text-secondary hover:text-text-primary'
                       }`}
                     >
@@ -122,9 +130,9 @@ export default function Navigation() {
                   <a
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link)}
-                    className={`text-sm font-medium transition-all duration-300 ${
+                    className={`text-sm font-medium transition-all duration-200 ${
                       active
-                        ? 'text-brand-primary'
+                        ? 'text-text-primary'
                         : 'text-text-secondary hover:text-text-primary'
                     }`}
                   >
@@ -134,6 +142,15 @@ export default function Navigation() {
               );
             })}
           </ul>
+
+          {/* CTA */}
+          <a
+            href="#contact"
+            onClick={(e) => handleNavClick(e, { href: '#contact', type: 'hash' })}
+            className="px-5 py-2 bg-black text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-all duration-200"
+          >
+            Get in Touch
+          </a>
         </div>
       </motion.nav>
 
@@ -143,29 +160,19 @@ export default function Navigation() {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        className="fixed bottom-6 right-6 z-50 md:hidden w-14 h-14 bg-surface rounded-full flex items-center justify-center shadow-lg border border-border"
+        className="fixed top-4 right-4 z-50 md:hidden w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-sm border border-border"
         aria-label="Toggle menu"
       >
         <svg
-          className="w-6 h-6 text-text-primary"
+          className="w-5 h-5 text-text-primary"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
         >
           {isMobileMenuOpen ? (
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M6 18L18 6M6 6l12 12"
-            />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
           ) : (
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4 6h16M4 12h16M4 18h16"
-            />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
           )}
         </svg>
       </motion.button>
@@ -177,7 +184,7 @@ export default function Navigation() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 bg-surface/98 backdrop-blur-xl md:hidden"
+            className="fixed inset-0 z-40 bg-white md:hidden"
           >
             <nav className="h-full flex items-center justify-center">
               <ul className="space-y-6 text-center">
@@ -186,13 +193,13 @@ export default function Navigation() {
                     key={link.name}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
+                    transition={{ delay: index * 0.05 }}
                   >
                     {link.type === 'route' ? (
                       <Link
                         to={link.href}
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="text-2xl font-display text-text-primary hover:text-brand-primary transition-colors"
+                        className="text-2xl font-bold text-text-primary hover:text-text-secondary transition-colors"
                       >
                         {link.name}
                       </Link>
@@ -200,7 +207,7 @@ export default function Navigation() {
                       <a
                         href={link.href}
                         onClick={(e) => handleNavClick(e, link)}
-                        className="text-2xl font-display text-text-primary hover:text-brand-primary transition-colors"
+                        className="text-2xl font-bold text-text-primary hover:text-text-secondary transition-colors"
                       >
                         {link.name}
                       </a>
