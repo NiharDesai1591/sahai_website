@@ -17,35 +17,7 @@ const Hero = () => {
         backgroundSize: '24px 24px'
       }} />
 
-      {/* SAHAI logo - top left */}
-      <motion.div
-        className="absolute top-8 left-8 z-20"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="flex flex-col">
-          <span className="font-display text-2xl md:text-3xl font-extrabold tracking-tight text-text-primary leading-none">
-            SAHAI
-          </span>
-          <span className="font-display text-[0.45rem] md:text-[0.54rem] font-bold uppercase tracking-[0.28em] md:tracking-[0.34em] text-text-tertiary leading-tight">
-            Solutions for Accessible Health using AI
-          </span>
-        </div>
-      </motion.div>
-
       <div className="relative z-10 flex flex-col items-center">
-        {/* Badge */}
-        <motion.div
-          className="badge mb-8"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <span className="w-2 h-2 rounded-full bg-emerald-500" />
-          A Health@ARTPARK Initiative
-        </motion.div>
-
         {/* Main Headline */}
         <motion.h1
           className="font-display text-3xl md:text-5xl lg:text-6xl text-center max-w-5xl mb-6 font-extrabold tracking-tight text-text-primary"
