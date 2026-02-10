@@ -29,7 +29,7 @@ const ctaCards = [
 
 const Footer = () => {
   return (
-    <footer id="contact" className="bg-gradient-to-br from-brand-primary to-teal-700 text-white py-24">
+    <footer id="contact" className="bg-background py-24">
       <div className="max-content px-6">
         {/* Main CTA Section */}
         <div className="text-center mb-20">
@@ -37,8 +37,8 @@ const Footer = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="font-display text-3xl md:text-display mb-8"
+            transition={{ duration: 0.5 }}
+            className="font-display text-3xl md:text-display font-bold text-text-primary mb-8"
           >
             Join Us
           </motion.h2>
@@ -47,8 +47,8 @@ const Footer = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-body-lg max-w-2xl mx-auto mb-12 text-white/90"
+            transition={{ duration: 0.5, delay: 0.05 }}
+            className="text-body-lg max-w-2xl mx-auto mb-12 text-text-secondary"
           >
             We're looking for partners who share this vision of building AI-ready
             public health infrastructure.
@@ -59,19 +59,19 @@ const Footer = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
             className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto mb-16"
           >
             {ctaCards.map((card, idx) => (
               <div
                 key={idx}
-                className="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all group"
+                className="bg-white rounded-xl p-6 border border-border shadow-sm hover:shadow-md transition-all duration-200 text-left group"
               >
-                <h3 className="font-body text-body-lg font-semibold mb-2">{card.title}</h3>
-                <p className="text-body-sm text-white/80 mb-4">
+                <h3 className="font-display text-body-lg font-bold text-text-primary mb-2">{card.title}</h3>
+                <p className="text-body-sm text-text-secondary mb-4">
                   {card.description}
                 </p>
-                <a href={card.link} className="inline-flex items-center gap-2 text-body-sm font-medium group-hover:gap-3 transition-all">
+                <a href={card.link} className="inline-flex items-center gap-2 text-body-sm font-medium text-text-primary hover:text-text-secondary group-hover:gap-3 transition-all duration-200">
                   {card.linkText}
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -82,46 +82,25 @@ const Footer = () => {
           </motion.div>
         </div>
 
-        {/* Vision Statements */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="border-t border-white/20 pt-12 space-y-8 max-w-3xl mx-auto text-center"
-        >
-          <blockquote className="text-h3 font-display italic text-white/95">
-            "If DPI was the foundation, AI Blocks and DPI Workflows are the
-            scaffolding for what comes next."
-          </blockquote>
-
-          <blockquote className="text-h3 font-display italic text-white/95">
-            "If we do this right, as AI scales exponentially, health worker
-            capability scales with it. The inequity gap closes at the same rate."
-          </blockquote>
-        </motion.div>
-
         {/* Footer Info */}
-        <div className="border-t border-white/20 mt-16 pt-12">
+        <div className="border-t border-border mt-16 pt-12">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-            {/* Logo/Brand */}
             <div>
-              <h3 className="font-display text-h2 mb-2">SAHAI</h3>
-              <p className="text-body-sm text-white/80">A Health@ARTPARK Initiative</p>
+              <h3 className="font-display text-h2 font-bold text-text-primary mb-1">SAHAI</h3>
+              <p className="text-body-sm text-text-tertiary">A Health@ARTPARK Initiative</p>
             </div>
 
-            {/* Links */}
             <div className="flex flex-wrap justify-center gap-8">
-              <a href="#" className="text-body-sm hover:text-white/80 transition-colors">GitHub</a>
-              <a href="#" className="text-body-sm hover:text-white/80 transition-colors">LinkedIn</a>
-              <a href="#" className="text-body-sm hover:text-white/80 transition-colors">Publications</a>
-              <a href="#" className="text-body-sm hover:text-white/80 transition-colors">Contact</a>
+              <a href="#" className="text-body-sm text-text-secondary hover:text-text-primary transition-colors duration-200">GitHub</a>
+              <a href="#" className="text-body-sm text-text-secondary hover:text-text-primary transition-colors duration-200">LinkedIn</a>
+              <a href="#" className="text-body-sm text-text-secondary hover:text-text-primary transition-colors duration-200">Publications</a>
+              <a href="#" className="text-body-sm text-text-secondary hover:text-text-primary transition-colors duration-200">Contact</a>
             </div>
           </div>
 
           <div className="text-center mt-8">
-            <p className="text-body-sm text-white/60">
-              &copy; {new Date().getFullYear()} SAHAI. Building Public Agents for India's health system.
+            <p className="text-body-sm text-text-tertiary">
+              &copy; {new Date().getFullYear()} SAHAI. Building Public Agents for India&apos;s health system.
             </p>
           </div>
         </div>
