@@ -47,12 +47,12 @@ const DayInLife = () => {
             src={import.meta.env.BASE_URL + 'dayinlife-1x.png'}
             srcSet={`${import.meta.env.BASE_URL}dayinlife-1x.png 1x, ${import.meta.env.BASE_URL}dayinlife-2x.png 2x`}
             alt="A day in the life of a health worker with AI agents — from morning training through evening documentation"
-            width={1400}
-            height={748}
+            width={1536}
+            height={951}
             className="shadow-sm border border-border"
             style={{
               display: 'block',
-              maxWidth: '1400px',
+              maxWidth: '1536px',
               width: '100%',
               height: 'auto',
             }}
