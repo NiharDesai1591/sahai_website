@@ -41,19 +41,19 @@ const DayInLife = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.15 }}
-          className="flex justify-center -mx-6"
+          className="flex justify-center"
         >
           <img
             src={import.meta.env.BASE_URL + 'dayinlife-1x.png'}
-            srcSet={`${import.meta.env.BASE_URL}dayinlife-md.png 1024w, ${import.meta.env.BASE_URL}dayinlife-1x.png 1408w, ${import.meta.env.BASE_URL}dayinlife-2x.png 2816w`}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1408px"
+            srcSet={`${import.meta.env.BASE_URL}dayinlife-1x.png 1x, ${import.meta.env.BASE_URL}dayinlife-2x.png 2x`}
             alt="A day in the life of a health worker with AI agents — from morning training through evening documentation"
-            width={1408}
-            height={752}
+            width={1400}
+            height={748}
             className="shadow-sm border border-border"
             style={{
+              display: 'block',
+              maxWidth: '1400px',
               width: '100%',
-              maxWidth: '1408px',
               height: 'auto',
             }}
           />
