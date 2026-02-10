@@ -82,25 +82,6 @@ const Footer = () => {
           </motion.div>
         </div>
 
-        {/* Vision Statements */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.15 }}
-          className="border-t border-border pt-12 space-y-8 max-w-3xl mx-auto text-center"
-        >
-          <blockquote className="text-h3 font-display italic text-text-secondary font-medium">
-            &ldquo;If DPI was the foundation, AI Blocks and DPI Workflows are the
-            scaffolding for what comes next.&rdquo;
-          </blockquote>
-
-          <blockquote className="text-h3 font-display italic text-text-secondary font-medium">
-            &ldquo;If we do this right, as AI scales exponentially, health worker
-            capability scales with it. The inequity gap closes at the same rate.&rdquo;
-          </blockquote>
-        </motion.div>
-
         {/* Footer Info */}
         <div className="border-t border-border mt-16 pt-12">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
