@@ -44,16 +44,17 @@ const DayInLife = () => {
           className="flex justify-center -mx-6"
         >
           <img
-            src={import.meta.env.BASE_URL + 'dayinlife.png'}
+            src={import.meta.env.BASE_URL + 'dayinlife-1x.png'}
+            srcSet={`${import.meta.env.BASE_URL}dayinlife-md.png 1024w, ${import.meta.env.BASE_URL}dayinlife-1x.png 1408w, ${import.meta.env.BASE_URL}dayinlife-2x.png 2816w`}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1408px"
             alt="A day in the life of a health worker with AI agents — from morning training through evening documentation"
-            width={2816}
-            height={1504}
+            width={1408}
+            height={752}
             className="shadow-sm border border-border"
             style={{
               width: '100%',
               maxWidth: '1408px',
               height: 'auto',
-              imageRendering: '-webkit-optimize-contrast',
             }}
           />
         </motion.div>
